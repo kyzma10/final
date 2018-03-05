@@ -3,7 +3,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #27ae60;
+  background-color: #27ae60 !important;
   font-family: "proxima-nova", "Source Sans Pro", sans-serif;
   font-size: 1em;
   letter-spacing: 0.1px;
@@ -550,7 +550,7 @@ ul, li {
   max-height: calc(100% - 93px);
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 100%;
+  min-width: 100%;
 }
 @media screen and (max-width: 735px) {
   #frame .content .messages {

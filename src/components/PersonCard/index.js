@@ -8,13 +8,10 @@ class PersonCard extends Component {
   constructor() {
     super();
     this.state = {
-      user: {
-        id: '',
         userFacebook: '',
         userTwitter: '',
         userInstagram: '',
         userIsActive: ''
-      }
     }
   }
 
@@ -23,16 +20,19 @@ class PersonCard extends Component {
     profile.classList.toggle('expanded');
   }
 
-  handleChange = (e, set) => {
+  setSocial = (e) => {
     e.preventDefault();
-    const value = e.target.value;
+    this.setState ({
+    userFacebook : e.target.value
+    });
+    console.log(e.target.value);
   }
 
   render() {
     return (
       <div id="profile">
         <div className="wrap">
-          <img id="profile-img" src="images/junior-ava.jpg" className="online" alt="" />
+          <img id="profile-img" src="images/ava-4.png" className="online" alt="" />
           <p>Mike Ross</p>
 
           <i className="expand-button" onClick={() => this.handleClick()}>
@@ -50,11 +50,16 @@ class PersonCard extends Component {
           </div>
           <div id="expanded">
             <label htmlFor="facebook"><FaFacebook /></label>
-            <input name="facebook" type="text" value="mikeross" />
+            <input
+              name="facebook"
+              type="text"
+              value={this.state.userFacebook}
+              onChange={this.setSocial}
+            />
             <label htmlFor="twitter"><FaTwitter /></label>
-            <input name="twitter" type="text" value="ross81" />
+            <input name="twitter" type="text" value={this.state.userTwitter} />
             <label htmlFor="instagram"><FaInstagram /></label>
-            <input name="instagram" type="text" value="mike.ross" />
+            <input name="instagram" type="text" value={this.state.userInstagram} />
           </div>
         </div>
       </div>
